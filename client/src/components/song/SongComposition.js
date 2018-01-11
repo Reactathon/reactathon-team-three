@@ -7,8 +7,14 @@ import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 
-const user = {name:'violet', instruments:[]};
-const song = {name: 'abc', artist: 'abc', genre: 'abc', instrumentRoles: [{instrument: 'Guitar', users: ['saba', 'violet']},{instrument: 'Violin', users: ['chris', 'ronald']}]};
+const user = {name:'chris', instruments:[]};
+const song = {name: 'Green Onions', artist: 'Booker T. and the MGs', genre: 'R and B', instrumentRoles:
+        [
+            {instrument: 'Percussion', users: ['saba']},
+            {instrument: 'Bass', users: ['chris']},
+            {instrument: 'Guitar', users: ['ronald']},
+            {instrument: 'Keyboard', users: ['violet']}
+        ]};
 
 const styles = {
     root: {
