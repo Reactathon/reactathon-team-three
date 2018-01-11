@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { withRouter } from 'react-router'
 import PropTypes from 'prop-types'
 import List, {ListItem, ListItemText, ListItemIcon} from 'material-ui/List'
 import Avatar from 'material-ui/Avatar'
@@ -22,12 +23,12 @@ const landingGridStyle = theme => ({
   }
 })
 
-const SongItem = songInfo => (
-  <ListItem button>
+const SongItem = withRouter(({history, name, artist}) => (
+  <ListItem button onClick={() => history.push('/songForm')}>
     <ListItemIcon><MusicNoteIcon /></ListItemIcon>
-    <ListItemText primary={songInfo.name} secondary={songInfo.artist} />
+    <ListItemText primary={name} secondary={artist} />
   </ListItem>
-)
+))
 
 const SongList = ({classes, songList: [...songs]}) => (
   <div className={classes.root}>
@@ -56,7 +57,7 @@ class Landing extends Component {
       <div className={this.classes.root}>
         <Grid container spacing={24}>
           <Grid item xs={12}>
-            <StyledSongList songList={this.props.songListExample}></StyledSongList>
+            <StyledSongList songList={this.props.songListData}></StyledSongList>
           </Grid>
         </Grid>
       </div>
@@ -66,7 +67,7 @@ class Landing extends Component {
 
 const mapStateToProps = state => {
   return {
-    songListExample: state.songList
+    songListData: state.songList
   }
 }
 
