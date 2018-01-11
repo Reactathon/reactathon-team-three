@@ -5,8 +5,9 @@ import Avatar from 'material-ui/Avatar'
 import MusicNoteIcon from 'material-ui-icons/MusicNote'
 import { withStyles } from 'material-ui/styles'
 import Grid from 'material-ui/Grid';
+import { connect } from 'react-redux'
 
-const songListExample = [{name:"blah",artist:"Rolling Stones"},{name:"bloo",artist:"Moody Bloos"}]
+//const songListExample = [{name:"blah",artist:"Rolling Stones"},{name:"bloo",artist:"Moody Bloos"}]
 
 const songListStyle = theme => ({
   root: {
@@ -50,10 +51,18 @@ const Landing = ({classes}) => (
   <div className={classes.root}>
     <Grid container spacing={24}>
       <Grid item xs={12}>
-        <StyledSongList songList={songListExample}></StyledSongList>
+        <StyledSongList songList={this.props.songListExample}></StyledSongList>
       </Grid>
     </Grid>
   </div>
 )
 
-export default withStyles(landingGridStyle)(Landing)
+//export default withStyles(landingGridStyle)(Landing)
+
+const mapStateToProps = state => {
+    return {
+        songListExample: state.songList
+    }
+}
+
+export default connect(mapStateToProps, null)(withStyles(landingGridStyle)(Landing))
