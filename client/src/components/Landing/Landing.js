@@ -24,7 +24,7 @@ const landingGridStyle = theme => ({
 })
 
 const SongItem = withRouter(({history, name, artist}) => (
-  <ListItem button onClick={() => history.push('/songForm')}>
+  <ListItem button onClick={() => history.push('/songComposition/'+name)}>
     <ListItemIcon><MusicNoteIcon /></ListItemIcon>
     <ListItemText primary={name} secondary={artist} />
   </ListItem>
