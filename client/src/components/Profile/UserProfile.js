@@ -1,15 +1,31 @@
 import React from 'react'
 import PropType from 'prop-types'
-
+import { withStyles } from 'material-ui/styles';
+import List, { ListItem, ListItemText } from 'material-ui/List';
+import Divider from 'material-ui/Divider';
+import InstrumentSelector from '../../components/InstrumentSelector/InstrumentSelector'
 import './Profile.css'
 
+const styles = {
+    root: {
+        width: '100%',
+        maxWidth: 360,
+    }
+}
+
 const UserProfile = ({firstName, lastName, email}) => {
-    return ( <div className="profile-container">
-        <h1>Profile</h1>
-        <span>First Name: {firstName} </span>
-        <span>Last Name: {lastName} </span>
-        <span>Email: {email} </span>
-    </div>)
+    return (
+        <div style={styles.root}>
+            <List>
+                <h1>Jonah Band Member Profile</h1>
+                <Divider />
+                <ListItem><ListItemText primary={"First Name: " + firstName}/></ListItem>
+                <ListItem><ListItemText primary={"Last Name: " + lastName}/></ListItem>
+                <ListItem><ListItemText primary={"Email: " + email}/></ListItem>
+            </List>
+            <InstrumentSelector headerText={'Please select the instruments you can play'} selected={['Guitar','Violin']} toggleCallback={ value => { console.log(value)}} />
+        </div>
+    );
 }
 
 /**
@@ -24,4 +40,4 @@ UserProfile.propTypes = {
     email: PropType.string.isRequired
 }
 
-export default UserProfile
+export default withStyles(styles)(UserProfile);

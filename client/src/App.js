@@ -49,7 +49,7 @@ class App extends Component {
                                 <Route path="/about" component={About}/>
                                 <Route path="/signin" component={SignIn}/>
                                 <Route path="/register" component={Register}/>
-                                <Route path="/profile/:id" component={Profile}/>
+                                <Route path="/profile" component={Profile}/>
                                 <Route path="/" exact component={Landing}/>
                                 <AuthenticatedRoute path="/account-information" component={AccountInformation}/>
                                 <Route path="/songForm" component={SongProfile}/>
