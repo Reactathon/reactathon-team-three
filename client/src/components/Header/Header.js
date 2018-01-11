@@ -7,10 +7,9 @@ const Header = () => {
     return(
         <div className="header-container">
             <Link to="/" className="home">Home</Link>
+            <Link to="/profile" className="home">Profile</Link>
             <Link to="/about" className="nav-items">About</Link>
             <Link to="/songForm" className="nav-items">Add Song</Link>
-            <Link to="/signin" className="nav-items">Sign In</Link>
-            <Link to="/register" className="nav-items">Create Account</Link>
         </div>
     )
 }
