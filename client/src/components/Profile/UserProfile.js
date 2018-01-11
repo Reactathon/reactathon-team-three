@@ -13,14 +13,13 @@ const styles = {
     }
 }
 
-const UserProfile = ({firstName, lastName, email}) => {
+const UserProfile = ({name, email}) => {
     return (
         <div style={styles.root}>
             <List>
                 <h1>Jonah Band Member Profile</h1>
                 <Divider />
-                <ListItem><ListItemText primary={"First Name: " + firstName}/></ListItem>
-                <ListItem><ListItemText primary={"Last Name: " + lastName}/></ListItem>
+                <ListItem><ListItemText primary={"Name: " + name}/></ListItem>
                 <ListItem><ListItemText primary={"Email: " + email}/></ListItem>
             </List>
             <InstrumentSelector headerText={'Please select the instruments you can play'} selected={['Guitar','Violin']} toggleCallback={ value => { console.log(value)}} />

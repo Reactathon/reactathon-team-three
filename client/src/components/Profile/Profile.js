@@ -14,7 +14,7 @@ class Profile extends Component {
 
     render() {
         const {profile} = this.props
-        return <UserProfile firstName={profile.firstName} lastName={profile.lastName} email={profile.email} />
+        return <UserProfile name={profile.name} email={profile.email} />
     }
 
 }

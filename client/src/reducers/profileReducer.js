@@ -1,22 +1,18 @@
 
 const mockProfile1 = {
-    firstName: 'Saba',
-    lastName: 'Abas',
+    name: 'Saba',
     email: 'Saba@Abas.com'
 }
 const mockProfile2 = {
-    firstName: 'Chris',
-    lastName: 'Sirhc',
+    name: 'Chris',
     email: 'Chris@Sirhc.com'
 }
 const mockProfile3 = {
-    firstName: 'Ronald',
-    lastName: 'Dlanor',
+    name: 'Ronald',
     email: 'Ronald@Dlanor.com'
 }
 const mockProfile4 = {
-    firstName: 'Violet',
-    lastName: 'Teloiv',
+    name: 'Violet',
     email: 'Violet@Teloiv.com'
 }
 
