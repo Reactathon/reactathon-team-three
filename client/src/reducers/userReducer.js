@@ -1,7 +1,7 @@
 import { SET_USER } from '../actions/userActionTypes'
 
 
-const userReducer = (state = {}, action) => {
+const userReducer = (state = {userName: 'rcheng'}, action) => {
 
     switch (action.type) {
         case SET_USER:

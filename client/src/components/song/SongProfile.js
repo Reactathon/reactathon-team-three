@@ -14,8 +14,14 @@ class SongProfile extends Component {
         this.state = {
             name: '',
             artist: '',
-            genre: ''
+            genre: '',
+            instrutments: []
         };
+        this.handleSelectedInstructment = this.handleSelectedInstructment.bind(this);
+    }
+
+    componentDidMount() {
+        this.setState({user: this.props.user});
     }
 
     handleSubmit = (event) => {
@@ -29,16 +35,27 @@ class SongProfile extends Component {
         console.log("testing ", song);
 
         this.props.addSong(song);
+        this.props.history.push("/");
     }
 
     handleChange = name => event => {
         this.setState({ [name]: event.target.value });
     };
 
+    handleSelectedInstructment(value) {
+        const newInstruments = [...this.state.instrutments, value];
+        console.log(newInstruments);       
+        this.setState({instrutments: newInstruments});
+    }
+
     render() {
+        let username = '';
+        if(this.props.user) {
+            username = this.props.user.firstName + " " + this.props.user.lastName;
+        }
         return (
             <div>
-                <h1>Song Profile</h1>
+                <h1>Song Profile for {username}</h1>
                 <form>
 
                     <FormControl component="fieldset">
@@ -47,7 +64,7 @@ class SongProfile extends Component {
                                 control={
                                     <TextField
                                         id="name"
-                                        label="Name"
+                                        label="Song Name"
                                         value={this.state.name}
                                         onChange={this.handleChange('name')}
                                         margin="normal"
@@ -85,7 +102,7 @@ class SongProfile extends Component {
                             />
                         </FormGroup>
                     </FormControl>
-                    <InstrumentSelector headerText={'Please select the instruments for this song'} selected={['Guitar','Violin']} toggleCallback={ value => { console.log(value)}} />
+                    <InstrumentSelector headerText={'Please select the instruments for this song'} selected={this.state.instrutments} toggleCallback={this.handleSelectedInstructment} />
                     <div>
                         <Button raised color="primary" onClick={this.handleSubmit}>Submit</Button>
                     </div>
@@ -96,10 +113,16 @@ class SongProfile extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        user: state.user
+    }
+}
+
 const mapDispatchToProps = dispatch => {
     return {
         addSong: (song) => dispatch(addSong(song))
     }
 }
 
-export default connect(null, mapDispatchToProps)(SongProfile)
+export default connect(mapStateToProps, mapDispatchToProps)(SongProfile)

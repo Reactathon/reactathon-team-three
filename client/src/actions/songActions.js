@@ -1,4 +1,4 @@
-import { ADD_SONG, SONG_LIST } from './songActionTypes';
+import { ADD_SONG, ADD_INSTRUMENT } from './songActionTypes';
 
 
 export const setSong = song => {
@@ -8,9 +8,10 @@ export const setSong = song => {
     }
 }
 
-export const getAllSongs = () => {
+export const setInstrument = inst => {
     return {
-        type: SONG_LIST
+        type: ADD_INSTRUMENT,
+        inst
     }
 }
 
@@ -22,9 +23,9 @@ export const addSong = (song) => dispatch => {
     }
 }
 
-export const getSongs = () => dispatch => {
+export const addInstrument = (inst) => dispatch => {
     try {
-        return dispatch(getAllSongs())
+        return dispatch(setInstrument(inst))
     } catch (e) {
         // Error handle incorrect user password, locked out users etc...
     }
