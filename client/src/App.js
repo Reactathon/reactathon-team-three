@@ -26,6 +26,7 @@ import blue from 'material-ui/colors/blue'
 
 import './App.css'
 import 'typeface-roboto'
+import SongComposition from "./components/song/SongComposition";
 
 const store = createStore()
 
@@ -50,6 +51,7 @@ class App extends Component {
                                 <Route path="/signin" component={SignIn}/>
                                 <Route path="/register" component={Register}/>
                                 <Route path="/profile" component={Profile}/>
+                                <Route path="/songComposition/:name" component={SongComposition}/>
                                 <Route path="/" exact component={Landing}/>
                                 <AuthenticatedRoute path="/account-information" component={AccountInformation}/>
                                 <Route path="/songForm" component={SongProfile}/>

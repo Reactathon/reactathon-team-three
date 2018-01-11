@@ -17,10 +17,10 @@ const styles = {
 const sampleRoles = [{instrument: 'Guitar', users: ['saba', 'violet']},{instrument: 'Violin', users: ['chris', 'ronald']}];
 const sampleUsers = [{name: 'saba', instruments: ['Guitar', 'Vocals']}];
  */
-const InstrumentRoles =  ({currentUser, users, instrumentRoles}) => {
+const InstrumentRoles =  ({currentUser, instrumentRoles}) => {
 
     function isUserSubscribedToInstrument(i) {
-        return instrumentRoles.filter(value=> value.instrument === i)[0].users.includes(currentUser);
+        return instrumentRoles.filter(value=> value.instrument === i)[0].users.includes(currentUser.name);
     }
 
     function generateColor() {
