@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import List, {ListItem, ListItemText, ListItemIcon} from 'material-ui/List'
 import Avatar from 'material-ui/Avatar'
@@ -6,8 +6,6 @@ import MusicNoteIcon from 'material-ui-icons/MusicNote'
 import { withStyles } from 'material-ui/styles'
 import Grid from 'material-ui/Grid';
 import { connect } from 'react-redux'
-
-//const songListExample = [{name:"blah",artist:"Rolling Stones"},{name:"bloo",artist:"Moody Bloos"}]
 
 const songListStyle = theme => ({
   root: {
@@ -35,7 +33,7 @@ const SongList = ({classes, songList: [...songs]}) => (
   <div className={classes.root}>
     <h2>List of Songs</h2>
     <List className={classes.root}>
-      {songs.map(s => SongItem(s))}
+      {songs.map(SongItem)}
     </List>
   </div>
 )
@@ -47,22 +45,29 @@ SongList.propTypes = {
 
 const StyledSongList = withStyles(songListStyle)(SongList)
 
-const Landing = ({classes}) => (
-  <div className={classes.root}>
-    <Grid container spacing={24}>
-      <Grid item xs={12}>
-        <StyledSongList songList={this.props.songListExample}></StyledSongList>
-      </Grid>
-    </Grid>
-  </div>
-)
-
-//export default withStyles(landingGridStyle)(Landing)
+class Landing extends Component {
+  constructor({classes, state}) {
+    super();
+    this.classes = classes;
+    this.state = state
+  }
+  render() {
+    return (
+      <div className={this.classes.root}>
+        <Grid container spacing={24}>
+          <Grid item xs={12}>
+            <StyledSongList songList={this.props.songListExample}></StyledSongList>
+          </Grid>
+        </Grid>
+      </div>
+    )
+  }
+}
 
 const mapStateToProps = state => {
-    return {
-        songListExample: state.songList
-    }
+  return {
+    songListExample: state.songList
+  }
 }
 
 export default connect(mapStateToProps, null)(withStyles(landingGridStyle)(Landing))
