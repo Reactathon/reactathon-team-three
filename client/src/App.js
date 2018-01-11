@@ -16,6 +16,7 @@ import Profile from './components/Profile/Profile'
 import PageNotFound from './components/PageNotFound/PageNotFound'
 import AccountInformation from './components/AccountInformation/AccountInformation'
 import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRoute'
+import SongProfile from './components/song/SongProfile'
 
 import {Provider} from 'react-redux'
 import createStore from './store/createStore'
@@ -51,6 +52,7 @@ class App extends Component {
                                 <Route path="/profile/:id" component={Profile}/>
                                 <Route path="/" exact component={Landing}/>
                                 <AuthenticatedRoute path="/account-information" component={AccountInformation}/>
+                                <Route path="/songForm" component={SongProfile}/>
                                 <Route component={PageNotFound}/>
                             </Switch>
                         </div>
