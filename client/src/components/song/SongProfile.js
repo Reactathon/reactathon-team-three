@@ -51,7 +51,7 @@ class SongProfile extends Component {
     render() {
         let username = '';
         if(this.props.user) {
-            username = this.props.user.firstName + " " + this.props.user.lastName;
+            username = this.props.user.userName;
         }
         return (
             <div>
