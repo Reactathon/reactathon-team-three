@@ -18,9 +18,11 @@ const styles = {
 }
 
 const SongComposition = (props) => {
+    const name = props.match.params.name;
+
     return (
         <div>
-            <AppBar  color="default">
+            <div  color="default">
                 <Toolbar>
                     <Typography type="title" color="inherit">
 
@@ -30,7 +32,7 @@ const SongComposition = (props) => {
 
             <InstrumentRoles currentUser={user} instrumentRoles={song.instrumentRoles} unsubscribe={ value => { console.log(value)}} subscribe={ value => { console.log(value)}} />
 
-            </AppBar>
+            </div>
         </div>
     )
 }
